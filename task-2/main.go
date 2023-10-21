@@ -2,7 +2,6 @@ package main
 
 import (
 	biHeap "bashnya_hw1/data-structures/binaryHeap"
-	"bashnya_hw1/data-structures/queue"
 	"fmt"
 )
 
@@ -30,14 +29,4 @@ func main() {
 
 	h.ExtractTop()
 	fmt.Println(h)
-
-	q := queue.NewQueue()
-	q.Push(1)
-
-	q.Push(2)
-	fmt.Println(q)
-	q.Pop()
-
-	fmt.Println(q)
-
 }
