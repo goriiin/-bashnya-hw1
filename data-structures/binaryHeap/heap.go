@@ -1,4 +1,4 @@
-package binary_heap
+package binaryHeap
 
 import (
 	"sort"
@@ -11,15 +11,15 @@ type Heap struct {
 // NewHeap создать пустую кучу
 func NewHeap() Heap {
 	return Heap{
-		make([]int, 0),
+		make([]int, 10),
 	}
 }
 
 // Build «построить кучу» - разместить элементы в массиве так, чтобы сформировалась куча
-func Build(arr []int) Heap {
+func Build(arr []int) *Heap {
 	sort.Sort(sort.Reverse(sort.IntSlice(arr)))
 
-	return Heap{
+	return &Heap{
 		arr,
 	}
 }
