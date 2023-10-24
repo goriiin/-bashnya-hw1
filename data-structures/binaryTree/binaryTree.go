@@ -10,6 +10,7 @@ type BinarySearchTree struct {
 	root *node
 }
 
+// newNode create node
 func newNode(data int) *node {
 	return &node{
 		data,
@@ -18,6 +19,7 @@ func newNode(data int) *node {
 	}
 }
 
+// Insert - вставка
 func (bst *BinarySearchTree) Insert(data int) {
 	if bst.root == nil {
 		bst.root = newNode(data)
@@ -26,6 +28,7 @@ func (bst *BinarySearchTree) Insert(data int) {
 	}
 }
 
+// insertNode - вставка в узел
 func insertNode(node *node, data int) {
 	if data < node.data {
 		if node.pLeft == nil {
@@ -42,10 +45,12 @@ func insertNode(node *node, data int) {
 	}
 }
 
+// Search - поиск
 func (bst *BinarySearchTree) Search(data int) bool {
 	return searchNode(bst.root, data)
 }
 
+// searchNode - спуск по дереву
 func searchNode(node *node, data int) bool {
 	if node == nil {
 		return false
@@ -59,6 +64,7 @@ func searchNode(node *node, data int) bool {
 	}
 }
 
+// Balance - балансировка
 func (bst *BinarySearchTree) Balance() {
 	nodes := bst.getNodesInOrder()
 	bst.root = bst.buildBalancedTree(nodes, 0, len(nodes)-1)
