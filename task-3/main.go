@@ -1,32 +1,30 @@
 package main
 
-import (
-	biHeap "bashnya_hw1/data-structures/binaryHeap"
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	arr := []int{4, 5, 6, 3, 6}
-	h := biHeap.Build(arr)
+	var (
+		size int
+		num  int
+	)
+	_, err := fmt.Scan(&size)
+	if err != nil {
+		return
+	}
 
-	h.Insert(7)
-	h.Insert(9)
-	h.Insert(8)
+	arr := make([]int, size)
+	for i := 0; i < size-1; i++ {
+		_, err = fmt.Scan(&num)
+		if err != nil {
+			return
+		}
+		arr[i+1] = num
+	}
 
-	h.Insert(1)
-	h.Insert(7)
-	h.Insert(10)
-	h.Insert(11)
-
-	h.Insert(13)
-	h.Insert(12)
-	h.Insert(100)
-
-	fmt.Println(h)
-
-	h.ExtractTop()
-	fmt.Println(h)
-
-	h.ExtractTop()
-	fmt.Println(h)
+	_, err = fmt.Scan(&num)
+	if err != nil {
+		return
+	}
+	arr[0] = num
+	fmt.Println(arr)
 }
